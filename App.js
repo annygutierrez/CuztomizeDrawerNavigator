@@ -1,15 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions } from 'react-native';
+import {createDrawerNavigator, createAppContainer, DrawerItems} from 'react-navigation';
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <MyApp />
     );
   }
 }
+
+const AppDrawerNavigator = createDrawerNavigator({
+  Home: HomeScreen,
+  Settings: SettingsScreen
+});
+const MyApp = createAppContainer(AppDrawerNavigator);
 
 const styles = StyleSheet.create({
   container: {
